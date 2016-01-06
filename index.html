@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Click Game</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body>
+
+		<div id="box1"></div>
+		<p>Your Time: <span id="time"></span> Seconds</p>
+
+		<script type="text/javascript">
+
+			var clickedTime;
+			var createdTime;
+			var reactTime;
+			
+			function dotGen(){
+				var time = Math.random();
+				time = Math.floor(time*5000);
+				var randomColor = Math.floor(Math.random()*16777215).toString(16);
+				var ranNumb = Math.floor((Math.random()*1000)+1);
+				console.log(time);
+
+				setTimeout(function(){
+					document.getElementById("box1").style.display="block";
+					document.getElementById("box1").style.backgroundColor="#"+randomColor;
+					document.getElementById("box1").style.height=ranNumb+"px";
+					createdTime=Date.now();
+				}, time);
+			}
+
+			dotGen();
+
+			document.getElementById("box1").onclick=function() {
+				clickedTime=Date.now();
+				reactTime=(clickedTime-createdTime)/1000;
+				this.style.display="none";
+				document.getElementById("time").innerHTML=reactTime;
+				dotGen();
+			}
+
+		</script>
+		
+
+	</body>
+</html>
