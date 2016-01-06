@@ -1,0 +1,30 @@
+/*
+*this is my style sheet
+*all styles are list alphabetically
+*/
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#box1{
+	background-color: red;
+	border-radius: 50%;
+	display: none;
+	height: 150px;
+	margin: 0 auto;
+	margin-top: 80px;
+	width: 150px;
+}
+p{
+	background-color: #000;
+	color: #fff;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	line-height: 2em;
+	height: 2em;
+	text-align: center;
+	width: 200px
+}
