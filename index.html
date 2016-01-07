@@ -9,8 +9,16 @@
 
 	<body>
 
+		<div id="title">
+			<h1>Click it!</h1>
+			<h2>The Game</h2>
+		</div>
+		<div id="rules">
+		<h3>Rules</h3>
+		<p>Click each box or circle as it appears to test your reaction time and see if you can beat you previous time as you go.</p>
+		</div>
 		<div id="box1"></div>
-		<p>Your Time: <span id="time"></span> Seconds</p>
+		<p id="score">Your Time: <span id="time">0</span> Seconds</p>
 
 		<script type="text/javascript">
 
@@ -22,13 +30,20 @@
 				var time = Math.random();
 				time = Math.floor(time*5000);
 				var randomColor = Math.floor(Math.random()*16777215).toString(16);
-				var ranNumb = Math.floor((Math.random()*1000)+1);
-				console.log(time);
+				var ranNumb = Math.floor((Math.random()*500)+1);
+				console.log(randomColor);
 
 				setTimeout(function(){
+					if(Math.random()>0.5){
+						document.getElementById("box1").style.borderRadius="50%";
+					}else{
+						document.getElementById("box1").style.borderRadius="none";
+					}
 					document.getElementById("box1").style.display="block";
 					document.getElementById("box1").style.backgroundColor="#"+randomColor;
-					document.getElementById("box1").style.height=ranNumb+"px";
+					document.getElementById("box1").style.position="relative";
+					document.getElementById("box1").style.top=ranNumb+"px";
+					document.getElementById("box1").style.left=ranNumb+"px";
 					createdTime=Date.now();
 				}, time);
 			}
